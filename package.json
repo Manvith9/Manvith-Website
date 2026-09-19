@@ -1,14 +1,13 @@
 {
   "author": {
-    "name": "Ed Hinrichsen",
-    "url": "https://www.edwardh.io"
+    "name": "Sai Manvith Chatrathi"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/edhinrichsen/retro-computer-website.git"
+    "url": "git+https://github.com/Manvith9/retro-computer-website.git"
   },
   "license": "MIT",
-  "name": "retro-computer-website",
+  "name": "sai-manvith-portfolio",
   "version": "1.0.0",
   "type": "module",
   "scripts": {

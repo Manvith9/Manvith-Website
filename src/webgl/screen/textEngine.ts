@@ -678,7 +678,7 @@ export default function ScreenTextEngine(
       new THREE.MeshBasicMaterial({ color: 0x000000 })
     );
 
-    imageFrame.position.set(1.4 / 2, -height * 0.5 - charNextLoc.y, -0.02);
+    imageFrame.position.set(1.8 / 2, -height * 0.5 - charNextLoc.y - 0.12, -0.02);
     if (!params.get("noflow")) charNextLoc.y += height;
     rootGroup.add(imageFrame);
 
