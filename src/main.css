@@ -347,3 +347,48 @@ a:active {
   color: #f6d4b1;
   border: #f6d4b1 solid 1px;
 }
+
+/* Retro reading cursor */
+
+.retro-cursor,
+.retro-cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+}
+
+.retro-cursor {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f99021;
+  box-shadow: 0 0 8px rgba(249, 144, 33, 0.8);
+  margin-left: -3.5px;
+  margin-top: -3.5px;
+}
+
+.retro-cursor-glow {
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(249, 144, 33, 0.45);
+  border-radius: 50%;
+  margin-left: -12px;
+  margin-top: -12px;
+  transition: width 0.2s ease, height 0.2s ease;
+}
+
+/* Show the effect after leaving the main computer/hero area */
+html[data-scroll="true"] .retro-cursor,
+html[data-scroll="true"] .retro-cursor-glow {
+  opacity: 1;
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .retro-cursor,
+  .retro-cursor-glow {
+    display: none;
+  }
+}

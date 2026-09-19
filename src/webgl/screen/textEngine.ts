@@ -354,33 +354,56 @@ export default function ScreenTextEngine(
       const t = tokens[i];
       const geometry = [];
       switch (t.type) {
-        case "h1":
-          geometry.push(
-            generateGeometry({
-              str: t.value,
-              font: h1Font,
-              highlight: t.emphasis,
-            })
-          );
-          break;
-        case "h2":
-          geometry.push(
-            generateGeometry({
-              str: t.value,
-              font: h2Font,
-              highlight: t.emphasis,
-            })
-          );
-          break;
-        case "h3":
-          geometry.push(
-            generateGeometry({
-              str: t.value,
-              font: h3Font,
-              highlight: t.emphasis,
-            })
-          );
-          break;
+        case "h1": {
+  const words = t.value.trim().split(/\s+/);
+
+  for (const word of words) {
+    geometry.push(
+      generateGeometry({
+        str: word + " ",
+        font: h1Font,
+        highlight: t.emphasis,
+        wrap: true,
+        isWord: true,
+      })
+    );
+  }
+  break;
+}
+
+case "h2": {
+  const words = t.value.trim().split(/\s+/);
+
+  for (const word of words) {
+    geometry.push(
+      generateGeometry({
+        str: word + " ",
+        font: h2Font,
+        highlight: t.emphasis,
+        wrap: true,
+        isWord: true,
+      })
+    );
+  }
+  break;
+}
+
+case "h3": {
+  const words = t.value.trim().split(/\s+/);
+
+  for (const word of words) {
+    geometry.push(
+      generateGeometry({
+        str: word + " ",
+        font: h3Font,
+        highlight: t.emphasis,
+        wrap: true,
+        isWord: true,
+      })
+    );
+  }
+  break;
+}
         case "img":
           placeImage(t.value);
           break;

@@ -105,24 +105,55 @@ export default function WebGL() {
       }
     }
     const computerParallax = { x: 0, y: 0 };
+const pointerTarget = { x: 0, y: 0 };
+
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
     canvas.addEventListener(
-      "pointermove",
-      (event) => {
-        checkIfTouch(event);
-        if (mousedown) {
-          computerParallax.x +=
-            (event.clientX - mousedown.x) / (window.innerWidth * 0.5);
-          computerParallax.x = valMap(computerParallax.x, [-1, 1], [-1, 1]);
+  "pointermove",
+  (event) => {
+    checkIfTouch(event);
 
-          computerParallax.y +=
-            (event.clientY - mousedown.y) / (window.innerHeight * 0.5);
-          computerParallax.y = valMap(computerParallax.y, [-1, 1], [-1, 1]);
+    if (
+      event.pointerType === "mouse" &&
+      !prefersReducedMotion
+    ) {
+      pointerTarget.x =
+        (event.clientX / window.innerWidth - 0.5) * 2;
 
-          mousedown = { x: event.clientX, y: event.clientY };
-        }
-      },
-      { passive: true }
-    );
+      pointerTarget.y =
+        (event.clientY / window.innerHeight - 0.5) * 2;
+    }
+
+    // Preserve the original click-and-drag interaction.
+    if (mousedown) {
+      computerParallax.x +=
+        (event.clientX - mousedown.x) / (window.innerWidth * 0.5);
+
+      computerParallax.x = valMap(
+        computerParallax.x,
+        [-1, 1],
+        [-1, 1]
+      );
+
+      computerParallax.y +=
+        (event.clientY - mousedown.y) / (window.innerHeight * 0.5);
+
+      computerParallax.y = valMap(
+        computerParallax.y,
+        [-1, 1],
+        [-1, 1]
+      );
+
+      mousedown = {
+        x: event.clientX,
+        y: event.clientY,
+      };
+    }
+  },
+  { passive: true }
+);
 
     canvas.addEventListener(
       "pointerdown",
@@ -141,6 +172,15 @@ export default function WebGL() {
       },
       { passive: true }
     );
+
+    canvas.addEventListener(
+  "pointerleave",
+  () => {
+    pointerTarget.x = 0;
+    pointerTarget.y = 0;
+  },
+  { passive: true }
+);
 
     /**
      * Renderer
@@ -233,6 +273,11 @@ export default function WebGL() {
 
       const elapsedTime = clock.getElapsedTime();
 
+      computerParallax.x +=
+  (pointerTarget.x - computerParallax.x) * 0.035;
+
+computerParallax.y +=
+  (pointerTarget.y - computerParallax.y) * 0.035;
       const zoomFac = valMap(scroll, [0, 1], [0, 1]);
 
       camera.position.z = valMap(

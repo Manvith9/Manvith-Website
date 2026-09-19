@@ -1,5 +1,5 @@
 // @ts-ignore
-import titleText from "../file-system/home/user/title/title.md?raw";
+import titleText from "../content/title.md?raw";
 import Bash from "./bash";
 export type Change = {
   type: "add" | "del" | "none";
@@ -98,6 +98,73 @@ export default function Terminal(screenTextEngine: {
 
   window.addEventListener("keydown", (e) => {
     switch (e.key) {
+            case "Tab": {
+        e.preventDefault();
+
+        const input = textarea.value;
+        const cursor = textarea.selectionStart;
+        const beforeCursor = input.slice(0, cursor);
+
+        const parts = beforeCursor.split(/\s+/);
+        const current = parts[parts.length - 1] ?? "";
+        const command = parts[0] ?? "";
+
+        const homeItems = ["about", "contact", "experience", "projects"];
+
+        const projectItems = [
+          "multi-agent.md",
+          "document-ai.md",
+          "diabetes.md",
+          "collaboration.md",
+          "url-shortener.md",
+          "chat.md",
+          "votesecure.md",
+          "linux-driver.md",
+          "stm32-monitor.md",
+          "esp32-home.md",
+          "traffic-controller.md",
+        ];
+
+        let candidates: string[] = [];
+
+        if (command === "cd") {
+          candidates = homeItems;
+        } else if (
+          command === "show" ||
+          command === "cat"
+        ) {
+          candidates = projectItems;
+        }
+
+        const matches = candidates.filter((item) =>
+          item.startsWith(current)
+        );
+
+        if (matches.length === 1) {
+          const match = matches[0];
+          const start = cursor - current.length;
+
+          textarea.value =
+            input.slice(0, start) +
+            match +
+            input.slice(cursor);
+
+          const newCursor = start + match.length;
+
+          const change = stringEditDistance(oldText, textarea.value);
+          oldText = textarea.value;
+
+          if (change) {
+            screenTextEngine.userInput(change, newCursor);
+          }
+
+          lastSelection = newCursor;
+          textarea.setSelectionRange(newCursor, newCursor);
+          screenTextEngine.scrollToEnd();
+        }
+
+        break;
+      }
       case "ArrowUp":
         e.preventDefault();
         screenTextEngine.scroll(-1, "lines", {
