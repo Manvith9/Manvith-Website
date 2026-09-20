@@ -1,4 +1,4 @@
-## *VoteSecure — Secure Online Voting Backend*
+@@ VOTESECURE — SECURE ONLINE VOTING BACKEND
 ### Backend Engineering · Authentication
 
 ### • Node.js, Express.js

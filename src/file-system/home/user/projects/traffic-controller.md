@@ -1,4 +1,4 @@
-## *RTOS-Based Smart Traffic Controller*
+@@ RTOS-BASED SMART TRAFFIC CONTROLLER
 ### Real-Time Systems · Embedded Control
 
 ### • C, STM32, FreeRTOS

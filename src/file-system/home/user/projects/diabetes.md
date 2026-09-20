@@ -1,4 +1,4 @@
-## *Diabetes Decoded*
+@@ DIABETES DECODED
 ### Applied Machine Learning · Full-Stack AI
 
 ### • Machine Learning, Next.js, Flask

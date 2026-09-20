@@ -1,4 +1,4 @@
-## *Linux GPIO Character Device Driver*
+@@ LINUX GPIO CHARACTER DEVICE DRIVER
 ### Operating Systems · Embedded Linux
 
 ### • C, Linux Kernel, Raspberry Pi

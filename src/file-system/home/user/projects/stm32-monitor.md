@@ -1,4 +1,4 @@
-## *STM32 Environmental Monitoring System*
+@@ STM32 ENVIRONMENTAL MONITORING SYSTEM
 ### Embedded Systems · Real-Time Firmware
 
 ### • Embedded C, STM32, UART

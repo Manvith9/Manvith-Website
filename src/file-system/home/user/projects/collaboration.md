@@ -1,4 +1,4 @@
-## *Real-Time Collaboration Platform*
+@@ REAL-TIME COLLABORATION PLATFORM
 ### Distributed Systems · Real-Time Software
 
 ### • Next.js, TypeScript, Node.js

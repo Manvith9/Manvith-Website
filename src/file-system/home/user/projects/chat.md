@@ -1,4 +1,4 @@
-## *Real-Time Chat Platform*
+@@ REAL-TIME CHAT PLATFORM
 ### Networking · Distributed Backend Systems
 
 ### • React.js, Node.js, WebSockets

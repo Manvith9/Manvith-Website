@@ -1,4 +1,4 @@
-## *AI Document Intelligence System*
+@@ AI DOCUMENT INTELLIGENCE SYSTEM
 ### Document AI · Multimodal Learning
 
 ### • PyTorch, LayoutLM, OCR

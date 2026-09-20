@@ -1,4 +1,4 @@
-## *ESP32 Smart Home Controller*
+@@ ESP32 SMART HOME CONTROLLER
 ### FreeRTOS · IoT · Concurrent Embedded Systems
 
 ### • C, ESP32, FreeRTOS

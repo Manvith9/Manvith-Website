@@ -1,4 +1,4 @@
-## *Distributed URL Shortener*
+@@ DISTRIBUTED URL SHORTENER
 ### Distributed Systems · Backend Engineering
 
 ### • Java, Spring Boot, PostgreSQL
