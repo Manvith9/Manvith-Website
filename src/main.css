@@ -392,3 +392,643 @@ html[data-scroll="true"] .retro-cursor-glow {
     display: none;
   }
 }
+
+/* ============================================================
+   PROJECT EXPLORER
+   ============================================================ */
+
+.projects-explorer {
+  width: clamp(0px, 95vw, 900px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Header ---------- */
+
+.projects-header {
+  width: 100%;
+  margin: 0 auto 34px;
+  text-align: left;
+}
+
+.projects-heading-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.projects-heading-line h1 {
+  margin: 0;
+  text-align: left;
+}
+
+.projects-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 44px;
+  height: 44px;
+  padding: 0 8px;
+  box-sizing: border-box;
+
+  border: 2px dashed var(--color);
+  font-family: "public-pixel", monospace;
+  font-size: 0.75rem;
+}
+
+.projects-intro {
+  width: 100%;
+  max-width: 680px;
+  margin: 18px 0 14px;
+  padding: 0;
+
+  text-align: left;
+}
+
+.projects-prompt {
+  margin-top: 20px;
+
+  font-family: "public-pixel", monospace;
+  font-size: 0.68rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  margin-left: 3px;
+
+  animation: project-cursor-blink 0.85s steps(1) infinite;
+}
+
+@keyframes project-cursor-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ---------- Divider overrides ---------- */
+
+.projects-explorer > hr,
+.project-divider {
+  width: 100%;
+  height: 0;
+
+  margin: 0;
+
+  background: transparent;
+  border: 0;
+  border-bottom: 1px dashed var(--color);
+
+  opacity: 0.55;
+}
+
+/* Header divider gets breathing room */
+
+.projects-header + hr {
+  margin-bottom: 8px;
+}
+
+/* ---------- Project item ---------- */
+
+.project-item {
+  position: relative;
+  width: 100%;
+
+  text-align: left;
+}
+
+/* ---------- Main clickable row ---------- */
+
+.project-trigger {
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+  grid-template-columns: 28px 60px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  min-height: 108px;
+
+  padding: 18px 16px;
+  box-sizing: border-box;
+
+  border: 0;
+  border-radius: 0;
+
+  background: transparent;
+  color: var(--color);
+
+  font-family: "chill", sans-serif;
+  text-align: left;
+
+  cursor: pointer;
+  overflow: hidden;
+
+  transition:
+    color 180ms ease,
+    padding-left 220ms ease;
+}
+
+/* Dark sweep */
+
+.project-trigger::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: var(--color);
+
+  transform: translateX(-101%);
+  transition: transform 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-trigger:hover::before,
+.project-trigger:focus-visible::before,
+.project-item.is-open .project-trigger::before {
+  transform: translateX(0);
+}
+
+.project-trigger:hover,
+.project-trigger:focus-visible,
+.project-item.is-open .project-trigger {
+  color: #f6d4b1;
+  padding-left: 20px;
+}
+
+.project-trigger:focus {
+  outline: none;
+}
+
+.project-trigger:focus-visible {
+  outline: 2px dashed #f6d4b1;
+  outline-offset: -6px;
+}
+
+/* ---------- > selector ---------- */
+
+.project-selector {
+  opacity: 0;
+  transform: translateX(-8px);
+
+  font-family: "public-pixel", monospace;
+  font-size: 0.85rem;
+
+  transition:
+    opacity 160ms ease,
+    transform 180ms ease;
+}
+
+.project-trigger:hover .project-selector,
+.project-trigger:focus-visible .project-selector,
+.project-item.is-open .project-selector {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ---------- Project number ---------- */
+
+.project-number {
+  align-self: start;
+  padding-top: 5px;
+
+  font-family: "public-pixel", monospace;
+  font-size: 0.63rem;
+
+  opacity: 0.65;
+}
+
+.project-trigger:hover .project-number,
+.project-trigger:focus-visible .project-number,
+.project-item.is-open .project-number {
+  opacity: 1;
+}
+
+/* ---------- Title ---------- */
+
+.project-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+
+  min-width: 0;
+}
+
+.project-title {
+  display: block;
+
+  font-family: "public-pixel", monospace;
+  font-size: clamp(0.82rem, 1.5vw, 1.05rem);
+  line-height: 1.55;
+
+  transition:
+    transform 200ms ease,
+    letter-spacing 200ms ease;
+}
+
+.project-trigger:hover .project-title,
+.project-trigger:focus-visible .project-title,
+.project-item.is-open .project-title {
+  transform: translateX(4px);
+  letter-spacing: 0.015em;
+}
+
+/* ---------- Subtitle ---------- */
+
+.project-subtitle {
+  display: block;
+
+  font-size: 0.72rem;
+  line-height: 1.5;
+
+  opacity: 0.68;
+
+  transition: opacity 180ms ease;
+}
+
+.project-trigger:hover .project-subtitle,
+.project-trigger:focus-visible .project-subtitle,
+.project-item.is-open .project-subtitle {
+  opacity: 0.9;
+}
+
+/* ---------- Explore ---------- */
+
+.project-action {
+  padding-left: 16px;
+
+  white-space: nowrap;
+
+  font-family: "public-pixel", monospace;
+  font-size: 0.55rem;
+
+  opacity: 0.65;
+
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.project-trigger:hover .project-action,
+.project-trigger:focus-visible .project-action {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* When project is open */
+
+.project-item.is-open .project-action {
+  font-size: 0;
+  opacity: 1;
+}
+
+.project-item.is-open .project-action::after {
+  content: "OPEN ↑";
+
+  font-family: "public-pixel", monospace;
+  font-size: 0.55rem;
+}
+
+/* ============================================================
+   EXPANDED PROJECT
+   ============================================================ */
+
+.project-panel {
+  width: 100%;
+
+  padding: 14px 18px 38px 98px;
+  box-sizing: border-box;
+
+  text-align: left;
+}
+
+.project-panel[hidden] {
+  display: none;
+}
+
+.project-status {
+  margin: 10px 0 26px;
+
+  font-family: "public-pixel", monospace;
+  font-size: 0.58rem;
+  line-height: 1.6;
+
+  opacity: 0.55;
+}
+
+.project-content {
+  width: 100%;
+  max-width: 760px;
+}
+
+/* Override your global .skills centering */
+
+.project-content .skills {
+  justify-content: flex-start;
+
+  width: 100%;
+  max-width: 760px;
+
+  margin: 0 0 34px;
+  padding: 0;
+
+  gap: 12px;
+
+  text-align: left;
+}
+
+.project-content .skills li {
+  font-size: 0.72rem;
+}
+
+/* ---------- Expanded headings ---------- */
+
+.project-section {
+  margin: 0 0 32px;
+}
+
+.project-section h3 {
+  display: block;
+
+  margin: 0 0 10px;
+  padding: 0;
+
+  color: var(--color);
+  background: transparent;
+
+  font-family: "public-pixel", monospace;
+  font-size: 0.68rem;
+  line-height: 1.6;
+
+  text-align: left;
+}
+
+.project-section h3::before {
+  content: "> ";
+}
+
+/* Override global p width/margin */
+
+.project-section p {
+  width: 100%;
+  max-width: 760px;
+
+  margin: 0;
+  padding: 0;
+
+  text-align: left;
+}
+
+/* ---------- Collapse ---------- */
+
+.project-collapse {
+  margin: 4px 0 0;
+  padding: 9px 12px;
+
+  border: 1px dashed var(--color);
+  border-radius: 0;
+
+  background: transparent;
+  color: var(--color);
+
+  font-family: "public-pixel", monospace;
+  font-size: 0.55rem;
+
+  cursor: pointer;
+
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.project-collapse:hover,
+.project-collapse:focus-visible {
+  background: var(--color);
+  color: #f6d4b1;
+
+  transform: translateY(-2px);
+}
+
+.project-collapse:focus-visible {
+  outline: 2px dashed var(--color);
+  outline-offset: 4px;
+}
+
+/* ============================================================
+   PROJECT SUMMARY / SELECTED WORK NOTE
+   ============================================================ */
+
+.projects-explorer > p:not(.projects-intro) {
+  margin-top: 40px;
+}
+
+.projects-selection-note {
+  position: relative;
+
+  margin-top: 20px !important;
+  padding: 16px 16px 16px 24px;
+
+  border-left: 2px dashed var(--color);
+
+  opacity: 0.78;
+
+  font-size: 0.82rem;
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+  .projects-heading-line {
+    gap: 12px;
+  }
+
+  .projects-heading-line h1 {
+    font-size: 1.35em;
+  }
+
+  .projects-count {
+    min-width: 38px;
+    height: 38px;
+
+    font-size: 0.62rem;
+  }
+
+  .projects-intro {
+    margin-top: 16px;
+  }
+
+  .projects-prompt {
+    font-size: 0.58rem;
+  }
+
+  .project-trigger {
+    grid-template-columns: 20px 46px minmax(0, 1fr);
+
+    gap: 6px;
+
+    min-height: 100px;
+
+    padding: 16px 6px;
+  }
+
+  .project-trigger:hover,
+  .project-trigger:focus-visible,
+  .project-item.is-open .project-trigger {
+    padding-left: 10px;
+  }
+
+  .project-action {
+    display: none;
+  }
+
+  .project-number {
+    font-size: 0.55rem;
+  }
+
+  .project-title {
+    font-size: 0.78rem;
+  }
+
+  .project-subtitle {
+    font-size: 0.65rem;
+  }
+
+  .project-panel {
+    padding:
+      14px
+      8px
+      34px
+      72px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-heading-line h1 {
+    font-size: 1.05em;
+  }
+
+  .projects-count {
+    min-width: 34px;
+    height: 34px;
+  }
+
+  .project-trigger {
+    grid-template-columns: 16px 40px minmax(0, 1fr);
+
+    min-height: 92px;
+
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .project-title {
+    font-size: 0.7rem;
+  }
+
+  .project-subtitle {
+    font-size: 0.58rem;
+  }
+
+  .project-panel {
+    padding-left: 58px;
+  }
+}
+
+/* ============================================================
+   TOUCH
+   ============================================================ */
+
+@media (hover: none) {
+  .project-trigger:hover::before {
+    transform: translateX(-101%);
+  }
+
+  .project-trigger:hover {
+    color: var(--color);
+  }
+
+  .project-trigger:hover .project-selector {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+
+  .project-item.is-open .project-trigger::before {
+    transform: translateX(0);
+  }
+
+  .project-item.is-open .project-trigger {
+    color: #f6d4b1;
+  }
+
+  .project-item.is-open .project-selector {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .terminal-cursor {
+    animation: none;
+  }
+
+  .project-trigger,
+  .project-trigger::before,
+  .project-selector,
+  .project-title,
+  .project-subtitle,
+  .project-action,
+  .project-collapse {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   PROJECT CURSOR FEEDBACK
+   ============================================================ */
+
+.retro-cursor.is-project-hover {
+  width: 10px;
+  height: 10px;
+
+  margin-left: -5px;
+  margin-top: -5px;
+
+  box-shadow:
+    0 0 8px rgba(249, 144, 33, 0.9),
+    0 0 16px rgba(249, 144, 33, 0.45);
+}
+
+.retro-cursor-glow.is-project-hover {
+  width: 42px;
+  height: 42px;
+
+  margin-left: -21px;
+  margin-top: -21px;
+
+  border-style: dashed;
+
+  transform-origin: center;
+}
+
+.project-trigger {
+  cursor: pointer;
+}

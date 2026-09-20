@@ -154,441 +154,1151 @@
         </p>
       </section>
 
-<section>
-  <h1 id="projects">Projects</h1>
+<section class="projects-explorer" aria-labelledby="projects">
+
+  <header class="projects-header">
+
+    <div class="projects-heading-line">
+      <h1 id="projects">Research &amp; Engineering Projects</h1>
+      <span class="projects-count" aria-label="11 selected projects">11</span>
+    </div>
+
+    <p class="projects-intro">
+      Selected work across intelligent systems, software, and computing.
+    </p>
+
+    <div class="projects-prompt" aria-hidden="true">
+      &gt; SELECT A PROJECT TO EXPLORE<span class="terminal-cursor">_</span>
+    </div>
+
+  </header>
+
   <hr />
 
-  <!-- =========================================================
+    <!-- =========================================================
        01 — MULTI-AGENT RESEARCH PLATFORM
        ========================================================= -->
-  <h2>Multi-Agent Research Platform</h2>
-  <h3>AI Agents · LLM Systems · Research Automation</h3>
 
-  <ul class="skills">
-    <li>LangGraph</li>
-    <li>LangChain</li>
-    <li>OpenAI API</li>
-    <li>FastAPI</li>
-    <li>Pinecone</li>
-    <li>PostgreSQL</li>
-    <li>AWS</li>
-  </ul>
+  <article class="project-item" data-project="01">
 
-  <p>
-    I developed a full-stack multi-agent AI research platform that
-    decomposes complex research workflows across specialized agents for
-    planning, information retrieval, analysis, and synthesis. Rather than
-    relying on a single language-model interaction, the system coordinates
-    five or more specialized agents to execute multi-step research tasks.
-  </p>
+    <!-- Compact project row -->
+    <button
+      class="project-trigger"
+      type="button"
+      aria-expanded="false"
+      aria-controls="project-panel-01"
+    >
+      <span class="project-selector" aria-hidden="true">&gt;</span>
 
-  <p>
-    I implemented agent orchestration, tool calling, contextual memory,
-    semantic search, and retrieval-augmented generation using LangGraph
-    and LangChain. FastAPI services connect the agent layer with
-    application workflows, while vector search and PostgreSQL-backed
-    pipelines support analysis across more than 25,000 indexed documents.
-  </p>
+      <span class="project-number">[01]</span>
 
-  <p>
-    I designed the project to explore how language-model agents can
-    decompose difficult problems, retrieve external evidence, maintain
-    useful context, and coordinate decisions across longer workflows.
-    This work directly shaped my broader research interests in agentic AI,
-    foundation models, interactive learning, reinforcement learning, and
-    feedback-driven adaptation.
-  </p>
+      <span class="project-heading">
+        <span class="project-title">
+          Multi-Agent Research Platform
+        </span>
 
-  <hr />
+        <span class="project-subtitle">
+          AI Agents · LLM Systems · Research Automation
+        </span>
+      </span>
+
+      <span class="project-action" aria-hidden="true">
+        EXPLORE →
+      </span>
+    </button>
 
 
-  <!-- =========================================================
-       02 — AI DOCUMENT INTELLIGENCE SYSTEM
-       ========================================================= -->
-  <h2>AI Document Intelligence System</h2>
-  <h3>Document AI · Multimodal Learning</h3>
+    <!-- Expandable project details -->
+    <div
+      class="project-panel"
+      id="project-panel-01"
+      hidden
+    >
 
-  <ul class="skills">
-    <li>PyTorch</li>
-    <li>LayoutLM</li>
-    <li>OCR</li>
-    <li>FastAPI</li>
-    <li>Transformers</li>
-    <li>AWS</li>
-  </ul>
+      <div class="project-status" aria-hidden="true">
+        [ OPENING PROJECT 01... ]
+      </div>
 
-  <p>
-    I developed an AI-powered document intelligence platform for
-    automated document understanding, classification, and structured
-    information extraction across more than 100,000 records.
-  </p>
+      <div class="project-content">
 
-  <p>
-    I built OCR and transformer-based processing pipelines using LayoutLM
-    and PyTorch, allowing the system to model both textual content and
-    spatial document structure. The resulting pipeline achieved
-    approximately 91% extraction accuracy on structured document fields.
-  </p>
-
-  <p>
-    I also implemented automated evaluation and processing workflows that
-    reduced manual document-review effort by approximately 65%. The
-    project strengthened my interest in multimodal representations and in
-    systems that must reason over several forms of context simultaneously.
-  </p>
-
-  <hr />
+        <ul class="skills">
+          <li>LangGraph</li>
+          <li>LangChain</li>
+          <li>OpenAI API</li>
+          <li>FastAPI</li>
+          <li>Pinecone</li>
+          <li>PostgreSQL</li>
+          <li>AWS</li>
+        </ul>
 
 
-  <!-- =========================================================
-       03 — DIABETES DECODED
-       ========================================================= -->
-  <h2>Diabetes Decoded</h2>
-  <h3>Applied Machine Learning · Full-Stack AI</h3>
+        <div class="project-section">
+          <h3>Overview</h3>
 
-  <ul class="skills">
-    <li>Machine Learning</li>
-    <li>Next.js</li>
-    <li>Flask</li>
-    <li>Firebase</li>
-    <li>PostgreSQL</li>
-    <li>AWS</li>
-  </ul>
+          <p>
+            I developed a full-stack multi-agent AI research platform that
+            decomposes complex research workflows across specialized agents for
+            planning, information retrieval, analysis, and synthesis. Rather than
+            relying on a single language-model interaction, the system coordinates
+            five or more specialized agents to execute multi-step research tasks.
+          </p>
+        </div>
 
-  <p>
-    I developed an end-to-end healthcare analytics platform for securely
-    managing health information, identifying trends, and generating
-    predictive insights from more than 1,000 user health records.
-  </p>
 
-  <p>
-    I built machine-learning analytics pipelines that achieved
-    approximately 87% prediction accuracy in my evaluation and connected
-    them to a full-stack application using Next.js, Flask, Firebase, and
-    REST APIs. Interactive dashboards expose health trends and model
-    outputs while authentication and persistent storage support secure
-    profile management.
-  </p>
+        <div class="project-section">
+          <h3>Implementation</h3>
 
-  <p>
-    I also integrated visualization and external services for diet and
-    exercise information. Building the system reinforced my view that
-    successful machine learning depends not only on model performance but
-    also on reliable data pipelines, software architecture, security, and
-    understandable interfaces.
-  </p>
+          <p>
+            I implemented agent orchestration, tool calling, contextual memory,
+            semantic search, and retrieval-augmented generation using LangGraph
+            and LangChain. FastAPI services connect the agent layer with
+            application workflows, while vector search and PostgreSQL-backed
+            pipelines support analysis across more than 25,000 indexed documents.
+          </p>
+        </div>
 
-  <hr />
+
+        <div class="project-section">
+          <h3>Research Direction</h3>
+
+          <p>
+            I designed the project to explore how language-model agents can
+            decompose difficult problems, retrieve external evidence, maintain
+            useful context, and coordinate decisions across longer workflows.
+            This work directly shaped my broader research interests in agentic AI,
+            foundation models, interactive learning, reinforcement learning, and
+            feedback-driven adaptation.
+          </p>
+        </div>
+
+      </div>
+
+
+      <button
+        class="project-collapse"
+        type="button"
+        aria-label="Collapse Multi-Agent Research Platform"
+      >
+        [ COLLAPSE PROJECT ↑ ]
+      </button>
+
+    </div>
+
+  </article>
+
+  <hr class="project-divider" />
 
 
   <!-- =========================================================
-       04 — REAL-TIME COLLABORATION PLATFORM
-       ========================================================= -->
-  <h2>Real-Time Collaboration Platform</h2>
-  <h3>Distributed Systems · Real-Time Software</h3>
+     02 — AI DOCUMENT INTELLIGENCE SYSTEM
+     ========================================================= -->
 
-  <ul class="skills">
-    <li>Next.js</li>
-    <li>TypeScript</li>
-    <li>Node.js</li>
-    <li>WebSockets</li>
-    <li>Redis</li>
-    <li>PostgreSQL</li>
-    <li>Docker</li>
-  </ul>
+<article class="project-item" data-project="02">
 
-  <p>
-    I engineered a collaborative workspace supporting real-time editing,
-    comments, authentication, and team collaboration. Persistent WebSocket
-    connections provide low-latency bidirectional communication, while
-    Redis Pub/Sub distributes events across application instances.
-  </p>
+  <button
+    class="project-trigger"
+    type="button"
+    aria-expanded="false"
+    aria-controls="project-panel-02"
+  >
+    <span class="project-selector" aria-hidden="true">&gt;</span>
+    <span class="project-number">[02]</span>
 
-  <p>
-    I designed REST APIs, role-based access control, and PostgreSQL schemas
-    for secure collaboration workflows. The real-time architecture was
-    designed to support more than 1,000 concurrent connections while
-    maintaining synchronized application state across connected clients.
-  </p>
+    <span class="project-heading">
+      <span class="project-title">
+        AI Document Intelligence System
+      </span>
 
-  <p>
-    This project gave me practical experience with distributed state,
-    concurrency, event propagation, synchronization, and the engineering
-    tradeoffs involved in building interactive systems at scale.
-  </p>
+      <span class="project-subtitle">
+        Document AI · Multimodal Learning
+      </span>
+    </span>
 
-  <hr />
+    <span class="project-action" aria-hidden="true">
+      EXPLORE →
+    </span>
+  </button>
 
 
-  <!-- =========================================================
-       05 — DISTRIBUTED URL SHORTENER
-       ========================================================= -->
-  <h2>Distributed URL Shortener</h2>
-  <h3>Distributed Systems · Backend Engineering</h3>
+  <div
+    class="project-panel"
+    id="project-panel-02"
+    hidden
+  >
 
-  <ul class="skills">
-    <li>Java</li>
-    <li>Spring Boot</li>
-    <li>PostgreSQL</li>
-    <li>Redis</li>
-    <li>AWS</li>
-    <li>Docker</li>
-  </ul>
+    <div class="project-status" aria-hidden="true">
+      [ OPENING PROJECT 02... ]
+    </div>
 
-  <p>
-    I developed a distributed URL-shortening service with REST APIs for
-    URL generation, redirection, and analytics tracking. The system was
-    designed around scalable backend architecture rather than treating
-    URL shortening as a simple database lookup.
-  </p>
+    <div class="project-content">
 
-  <p>
-    I implemented Redis caching and rate limiting to reduce repeated
-    database access and protect backend resources, reducing average
-    response latency by approximately 60% in my testing. Persistent URL
-    data and analytics are managed through PostgreSQL.
-  </p>
-
-  <p>
-    I containerized the services with Docker and deployed them on AWS
-    using a scalable microservices-oriented architecture. The project
-    allowed me to explore how caching, persistence, API design, rate
-    limiting, and deployment decisions influence system behavior under
-    increasing demand.
-  </p>
-
-  <hr />
+      <ul class="skills">
+        <li>PyTorch</li>
+        <li>LayoutLM</li>
+        <li>OCR</li>
+        <li>FastAPI</li>
+        <li>Transformers</li>
+        <li>AWS</li>
+      </ul>
 
 
-  <!-- =========================================================
-       06 — REAL-TIME CHAT PLATFORM
-       ========================================================= -->
-  <h2>Real-Time Chat Platform</h2>
-  <h3>Networking · Distributed Backend Systems</h3>
+      <div class="project-section">
+        <h3>Overview</h3>
 
-  <ul class="skills">
-    <li>React.js</li>
-    <li>Node.js</li>
-    <li>WebSockets</li>
-    <li>Redis</li>
-    <li>PostgreSQL</li>
-    <li>JWT</li>
-  </ul>
+        <p>
+          I developed an AI-powered document intelligence platform for
+          automated document understanding, classification, and structured
+          information extraction across more than 100,000 records.
+        </p>
+      </div>
 
-  <p>
-    I built a real-time messaging platform designed to support more than
-    1,000 concurrent WebSocket connections while maintaining responsive
-    communication between connected users.
-  </p>
 
-  <p>
-    I implemented JWT-based authentication and Redis Pub/Sub for
-    distributed message delivery, reducing message-delivery latency by
-    approximately 50% in my testing. I also designed backend APIs,
-    PostgreSQL schemas, session management, and user and conversation
-    workflows.
-  </p>
+      <div class="project-section">
+        <h3>Implementation</h3>
 
-  <p>
-    The project gave me hands-on experience with persistent connections,
-    asynchronous communication, distributed messaging, session state, and
-    the challenges involved in maintaining low-latency behavior as
-    concurrent usage grows.
-  </p>
+        <p>
+          I built OCR and transformer-based processing pipelines using LayoutLM
+          and PyTorch, allowing the system to model both textual content and
+          spatial document structure. The resulting pipeline achieved
+          approximately 91% extraction accuracy on structured document fields.
+        </p>
+      </div>
 
-  <hr />
+
+      <div class="project-section">
+        <h3>Research Direction</h3>
+
+        <p>
+          I also implemented automated evaluation and processing workflows that
+          reduced manual document-review effort by approximately 65%. The
+          project strengthened my interest in multimodal representations and in
+          systems that must reason over several forms of context simultaneously.
+        </p>
+      </div>
+
+    </div>
+
+
+    <button
+      class="project-collapse"
+      type="button"
+      aria-label="Collapse AI Document Intelligence System"
+    >
+      [ COLLAPSE PROJECT ↑ ]
+    </button>
+
+  </div>
+
+</article>
+
+<hr class="project-divider" />
 
 
   <!-- =========================================================
-       07 — VOTESECURE
-       ========================================================= -->
-  <h2>VoteSecure — Secure Online Voting Backend</h2>
-  <h3>Backend Engineering · Authentication</h3>
+     03 — DIABETES DECODED
+     ========================================================= -->
 
-  <ul class="skills">
-    <li>Node.js</li>
-    <li>Express.js</li>
-    <li>MongoDB</li>
-    <li>JWT</li>
-    <li>REST APIs</li>
-  </ul>
+<article class="project-item" data-project="03">
 
-  <p>
-    I developed the backend for an online voting application using
-    Node.js and Express.js, with an emphasis on authenticated access,
-    structured voter and candidate data, and reliable API design.
-  </p>
+  <button
+    class="project-trigger"
+    type="button"
+    aria-expanded="false"
+    aria-controls="project-panel-03"
+  >
+    <span class="project-selector" aria-hidden="true">&gt;</span>
+    <span class="project-number">[03]</span>
 
-  <p>
-    I implemented JWT-based authentication and Aadhaar-style identity
-    verification logic for access control and designed MongoDB schemas for
-    voter and candidate management. I also deployed the application online
-    with attention to data security and backend reliability.
-  </p>
+    <span class="project-heading">
+      <span class="project-title">
+        Diabetes Decoded
+      </span>
 
-  <p>
-    The project gave me experience thinking about authentication,
-    authorization, data modeling, and reliability in applications where
-    access to sensitive operations must be carefully controlled.
-  </p>
+      <span class="project-subtitle">
+        Applied Machine Learning · Full-Stack AI
+      </span>
+    </span>
 
-  <hr />
+    <span class="project-action" aria-hidden="true">
+      EXPLORE →
+    </span>
+  </button>
 
+  <div
+    class="project-panel"
+    id="project-panel-03"
+    hidden
+  >
 
-  <!-- =========================================================
-       08 — LINUX GPIO CHARACTER DEVICE DRIVER
-       ========================================================= -->
-  <h2>Linux GPIO Character Device Driver</h2>
-  <h3>Operating Systems · Embedded Linux</h3>
+    <div class="project-status" aria-hidden="true">
+      [ OPENING PROJECT 03... ]
+    </div>
 
-  <ul class="skills">
-    <li>C</li>
-    <li>Linux Kernel</li>
-    <li>Raspberry Pi</li>
-    <li>GPIO</li>
-    <li>Device Drivers</li>
-    <li>LKM</li>
-  </ul>
+    <div class="project-content">
 
-  <p>
-    I developed a Linux character device driver in C for direct Raspberry
-    Pi GPIO control using the Linux Kernel Module framework, working
-    directly across the boundary between user-space applications,
-    kernel-space software, and physical hardware.
-  </p>
+      <ul class="skills">
+        <li>Machine Learning</li>
+        <li>Next.js</li>
+        <li>Flask</li>
+        <li>Firebase</li>
+        <li>PostgreSQL</li>
+        <li>AWS</li>
+      </ul>
 
-  <p>
-    I implemented ioctl() interfaces for GPIO configuration and control,
-    created user-space applications for interacting with the driver, and
-    developed Makefiles for compiling, loading, and deploying the kernel
-    module on Embedded Linux.
-  </p>
+      <div class="project-section">
+        <h3>Overview</h3>
 
-  <p>
-    I validated driver functionality using Linux kernel logs through
-    dmesg, system utilities, and command-line debugging tools. Building
-    the driver gave me a deeper understanding of operating-system
-    abstractions and the software interfaces connecting applications to
-    hardware.
-  </p>
+        <p>
+          I developed an end-to-end healthcare analytics platform for securely
+          managing health information, identifying trends, and generating
+          predictive insights from more than 1,000 user health records.
+        </p>
+      </div>
 
-  <hr />
+      <div class="project-section">
+        <h3>Implementation</h3>
 
+        <p>
+          I built machine-learning analytics pipelines that achieved
+          approximately 87% prediction accuracy in my evaluation and connected
+          them to a full-stack application using Next.js, Flask, Firebase, and
+          REST APIs. Interactive dashboards expose health trends and model
+          outputs while authentication and persistent storage support secure
+          profile management.
+        </p>
+      </div>
 
-  <!-- =========================================================
-       09 — STM32 ENVIRONMENTAL MONITORING SYSTEM
-       ========================================================= -->
-  <h2>STM32 Environmental Monitoring System</h2>
-  <h3>Embedded Systems · Real-Time Firmware</h3>
+      <div class="project-section">
+        <h3>Engineering Direction</h3>
 
-  <ul class="skills">
-    <li>Embedded C</li>
-    <li>STM32</li>
-    <li>UART</li>
-    <li>ADC</li>
-    <li>I²C</li>
-    <li>GPIO</li>
-  </ul>
+        <p>
+          I also integrated visualization and external services for diet and
+          exercise information. Building the system reinforced my view that
+          successful machine learning depends not only on model performance but
+          also on reliable data pipelines, software architecture, security, and
+          understandable interfaces.
+        </p>
+      </div>
 
-  <p>
-    I developed Embedded C firmware for an STM32-based environmental
-    monitoring system that acquires and processes sensor measurements in
-    real time.
-  </p>
+    </div>
 
-  <p>
-    I integrated temperature and humidity sensors through I²C and
-    implemented ADC-based analog signal acquisition. Hardware timers and
-    interrupts drive periodic sensor sampling and UART communication,
-    avoiding dependence on a purely sequential polling architecture.
-  </p>
+    <button
+      class="project-collapse"
+      type="button"
+      aria-label="Collapse Diabetes Decoded"
+    >
+      [ COLLAPSE PROJECT ↑ ]
+    </button>
 
-  <p>
-    I also implemented low-power firmware techniques and validated system
-    behavior using STM32CubeIDE debugging and serial communication tools.
-    The project strengthened my understanding of timing, interrupts,
-    resource constraints, and hardware-software coordination in real-time
-    systems.
-  </p>
+  </div>
 
-  <hr />
+</article>
+
+<hr class="project-divider" />
 
 
   <!-- =========================================================
-       10 — ESP32 SMART HOME CONTROLLER
-       ========================================================= -->
-  <h2>ESP32 Smart Home Controller</h2>
-  <h3>FreeRTOS · IoT · Concurrent Embedded Systems</h3>
+     04 — REAL-TIME COLLABORATION PLATFORM
+     ========================================================= -->
 
-  <ul class="skills">
-    <li>C</li>
-    <li>ESP32</li>
-    <li>FreeRTOS</li>
-    <li>MQTT</li>
-    <li>Wi-Fi</li>
-    <li>SPI</li>
-  </ul>
+<article class="project-item" data-project="04">
 
-  <p>
-    I developed multitasking firmware using FreeRTOS for an ESP32-based
-    smart-home automation system, separating sensing, communication, and
-    device-control responsibilities into independently scheduled tasks.
-  </p>
+  <button
+    class="project-trigger"
+    type="button"
+    aria-expanded="false"
+    aria-controls="project-panel-04"
+  >
+    <span class="project-selector" aria-hidden="true">&gt;</span>
+    <span class="project-number">[04]</span>
 
-  <p>
-    I implemented MQTT communication over Wi-Fi for real-time cloud
-    connectivity and remote monitoring and integrated environmental
-    sensors and actuators through GPIO and SPI interfaces.
-  </p>
+    <span class="project-heading">
+      <span class="project-title">
+        Real-Time Collaboration Platform
+      </span>
 
-  <p>
-    I designed inter-task communication using FreeRTOS queues, semaphores,
-    and software timers and optimized memory utilization and task
-    scheduling to improve responsiveness. The project provided practical
-    experience with concurrency and synchronization under embedded
-    resource constraints.
-  </p>
+      <span class="project-subtitle">
+        Distributed Systems · Real-Time Software
+      </span>
+    </span>
 
-  <hr />
+    <span class="project-action" aria-hidden="true">
+      EXPLORE →
+    </span>
+  </button>
+
+  <div
+    class="project-panel"
+    id="project-panel-04"
+    hidden
+  >
+
+    <div class="project-status" aria-hidden="true">
+      [ OPENING PROJECT 04... ]
+    </div>
+
+    <div class="project-content">
+
+      <ul class="skills">
+        <li>Next.js</li>
+        <li>TypeScript</li>
+        <li>Node.js</li>
+        <li>WebSockets</li>
+        <li>Redis</li>
+        <li>PostgreSQL</li>
+        <li>Docker</li>
+      </ul>
+
+      <div class="project-section">
+        <h3>Overview</h3>
+
+        <p>
+          I engineered a collaborative workspace supporting real-time editing,
+          comments, authentication, and team collaboration. Persistent WebSocket
+          connections provide low-latency bidirectional communication, while
+          Redis Pub/Sub distributes events across application instances.
+        </p>
+      </div>
+
+      <div class="project-section">
+        <h3>Implementation</h3>
+
+        <p>
+          I designed REST APIs, role-based access control, and PostgreSQL schemas
+          for secure collaboration workflows. The real-time architecture was
+          designed to support more than 1,000 concurrent connections while
+          maintaining synchronized application state across connected clients.
+        </p>
+      </div>
+
+      <div class="project-section">
+        <h3>Engineering Focus</h3>
+
+        <p>
+          This project gave me practical experience with distributed state,
+          concurrency, event propagation, synchronization, and the engineering
+          tradeoffs involved in building interactive systems at scale.
+        </p>
+      </div>
+
+    </div>
+
+    <button
+      class="project-collapse"
+      type="button"
+      aria-label="Collapse Real-Time Collaboration Platform"
+    >
+      [ COLLAPSE PROJECT ↑ ]
+    </button>
+
+  </div>
+
+</article>
+
+<hr class="project-divider" />
 
 
   <!-- =========================================================
-       11 — RTOS-BASED SMART TRAFFIC CONTROLLER
-       ========================================================= -->
-  <h2>RTOS-Based Smart Traffic Controller</h2>
-  <h3>Real-Time Systems · Embedded Control</h3>
+     05 — DISTRIBUTED URL SHORTENER
+     ========================================================= -->
 
-  <ul class="skills">
-    <li>C</li>
-    <li>STM32</li>
-    <li>FreeRTOS</li>
-    <li>GPIO</li>
-    <li>Timers</li>
-    <li>Interrupts</li>
-  </ul>
+<article class="project-item" data-project="05">
 
-  <p>
-    I developed a multitasking traffic-signal controller using STM32 and
-    FreeRTOS to simulate a real-time traffic-management environment with
-    several independently executing control requirements.
-  </p>
+  <button
+    class="project-trigger"
+    type="button"
+    aria-expanded="false"
+    aria-controls="project-panel-05"
+  >
+    <span class="project-selector" aria-hidden="true">&gt;</span>
+    <span class="project-number">[05]</span>
 
-  <p>
-    I implemented concurrent RTOS tasks for traffic lights, pedestrian
-    crossings, and emergency-vehicle priority handling. GPIO, hardware
-    timers, and external interrupts provide deterministic signal control,
-    while FreeRTOS queues, semaphores, and software timers coordinate
-    synchronization and communication between tasks.
-  </p>
+    <span class="project-heading">
+      <span class="project-title">
+        Distributed URL Shortener
+      </span>
 
-  <p>
-    I optimized scheduling latency and resource utilization to maintain
-    reliable real-time behavior. The project gave me deeper experience
-    reasoning about deterministic execution, task priorities, concurrency,
-    synchronization, and resource management in embedded systems.
-  </p>
+      <span class="project-subtitle">
+        Distributed Systems · Backend Engineering
+      </span>
+    </span>
 
-  <hr />
+    <span class="project-action" aria-hidden="true">
+      EXPLORE →
+    </span>
+  </button>
+
+  <div
+    class="project-panel"
+    id="project-panel-05"
+    hidden
+  >
+
+    <div class="project-status" aria-hidden="true">
+      [ OPENING PROJECT 05... ]
+    </div>
+
+    <div class="project-content">
+
+      <ul class="skills">
+        <li>Java</li>
+        <li>Spring Boot</li>
+        <li>PostgreSQL</li>
+        <li>Redis</li>
+        <li>AWS</li>
+        <li>Docker</li>
+      </ul>
+
+      <div class="project-section">
+        <h3>Overview</h3>
+
+        <p>
+          I developed a distributed URL-shortening service with REST APIs for
+          URL generation, redirection, and analytics tracking. The system was
+          designed around scalable backend architecture rather than treating
+          URL shortening as a simple database lookup.
+        </p>
+      </div>
+
+      <div class="project-section">
+        <h3>Implementation</h3>
+
+        <p>
+          I implemented Redis caching and rate limiting to reduce repeated
+          database access and protect backend resources, reducing average
+          response latency by approximately 60% in my testing. Persistent URL
+          data and analytics are managed through PostgreSQL.
+        </p>
+      </div>
+
+      <div class="project-section">
+        <h3>Engineering Focus</h3>
+
+        <p>
+          I containerized the services with Docker and deployed them on AWS
+          using a scalable microservices-oriented architecture. The project
+          allowed me to explore how caching, persistence, API design, rate
+          limiting, and deployment decisions influence system behavior under
+          increasing demand.
+        </p>
+      </div>
+
+    </div>
+
+    <button
+      class="project-collapse"
+      type="button"
+      aria-label="Collapse Distributed URL Shortener"
+    >
+      [ COLLAPSE PROJECT ↑ ]
+    </button>
+
+  </div>
+
+</article>
+
+<hr class="project-divider" />
+
+
+  <!-- =========================================================
+     06 — REAL-TIME CHAT PLATFORM
+     ========================================================= -->
+
+<article class="project-item" data-project="06">
+
+  <button
+    class="project-trigger"
+    type="button"
+    aria-expanded="false"
+    aria-controls="project-panel-06"
+  >
+    <span class="project-selector" aria-hidden="true">&gt;</span>
+    <span class="project-number">[06]</span>
+
+    <span class="project-heading">
+      <span class="project-title">
+        Real-Time Chat Platform
+      </span>
+
+      <span class="project-subtitle">
+        Networking · Distributed Backend Systems
+      </span>
+    </span>
+
+    <span class="project-action" aria-hidden="true">
+      EXPLORE →
+    </span>
+  </button>
+
+  <div
+    class="project-panel"
+    id="project-panel-06"
+    hidden
+  >
+
+    <div class="project-status" aria-hidden="true">
+      [ OPENING PROJECT 06... ]
+    </div>
+
+    <div class="project-content">
+
+      <ul class="skills">
+        <li>React.js</li>
+        <li>Node.js</li>
+        <li>WebSockets</li>
+        <li>Redis</li>
+        <li>PostgreSQL</li>
+        <li>JWT</li>
+      </ul>
+
+      <div class="project-section">
+        <h3>Overview</h3>
+
+        <p>
+          I built a real-time messaging platform designed to support more than
+          1,000 concurrent WebSocket connections while maintaining responsive
+          communication between connected users.
+        </p>
+      </div>
+
+      <div class="project-section">
+        <h3>Implementation</h3>
+
+        <p>
+          I implemented JWT-based authentication and Redis Pub/Sub for
+          distributed message delivery, reducing message-delivery latency by
+          approximately 50% in my testing. I also designed backend APIs,
+          PostgreSQL schemas, session management, and user and conversation
+          workflows.
+        </p>
+      </div>
+
+      <div class="project-section">
+        <h3>Engineering Focus</h3>
+
+        <p>
+          The project gave me hands-on experience with persistent connections,
+          asynchronous communication, distributed messaging, session state, and
+          the challenges involved in maintaining low-latency behavior as
+          concurrent usage grows.
+        </p>
+      </div>
+
+    </div>
+
+    <button
+      class="project-collapse"
+      type="button"
+      aria-label="Collapse Real-Time Chat Platform"
+    >
+      [ COLLAPSE PROJECT ↑ ]
+    </button>
+
+  </div>
+
+</article>
+
+<hr class="project-divider" />
+
+
+  <!-- =========================================================
+     07 — VOTESECURE
+     ========================================================= -->
+
+<article class="project-item" data-project="07">
+
+  <button
+    class="project-trigger"
+    type="button"
+    aria-expanded="false"
+    aria-controls="project-panel-07"
+  >
+    <span class="project-selector" aria-hidden="true">&gt;</span>
+    <span class="project-number">[07]</span>
+
+    <span class="project-heading">
+      <span class="project-title">
+        VoteSecure — Secure Online Voting Backend
+      </span>
+
+      <span class="project-subtitle">
+        Backend Engineering · Authentication
+      </span>
+    </span>
+
+    <span class="project-action" aria-hidden="true">
+      EXPLORE →
+    </span>
+  </button>
+
+  <div
+    class="project-panel"
+    id="project-panel-07"
+    hidden
+  >
+
+    <div class="project-status" aria-hidden="true">
+      [ OPENING PROJECT 07... ]
+    </div>
+
+    <div class="project-content">
+
+      <ul class="skills">
+        <li>Node.js</li>
+        <li>Express.js</li>
+        <li>MongoDB</li>
+        <li>JWT</li>
+        <li>REST APIs</li>
+      </ul>
+
+      <div class="project-section">
+        <h3>Overview</h3>
+
+        <p>
+          I developed the backend for an online voting application using
+          Node.js and Express.js, with an emphasis on authenticated access,
+          structured voter and candidate data, and reliable API design.
+        </p>
+      </div>
+
+      <div class="project-section">
+        <h3>Implementation</h3>
+
+        <p>
+          I implemented JWT-based authentication and Aadhaar-style identity
+          verification logic for access control and designed MongoDB schemas for
+          voter and candidate management. I also deployed the application online
+          with attention to data security and backend reliability.
+        </p>
+      </div>
+
+      <div class="project-section">
+        <h3>Engineering Focus</h3>
+
+        <p>
+          The project gave me experience thinking about authentication,
+          authorization, data modeling, and reliability in applications where
+          access to sensitive operations must be carefully controlled.
+        </p>
+      </div>
+
+    </div>
+
+    <button
+      class="project-collapse"
+      type="button"
+      aria-label="Collapse VoteSecure — Secure Online Voting Backend"
+    >
+      [ COLLAPSE PROJECT ↑ ]
+    </button>
+
+  </div>
+
+</article>
+
+<hr class="project-divider" />
+
+
+  <!-- =========================================================
+     08 — LINUX GPIO CHARACTER DEVICE DRIVER
+     ========================================================= -->
+
+<article class="project-item" data-project="08">
+
+  <button
+    class="project-trigger"
+    type="button"
+    aria-expanded="false"
+    aria-controls="project-panel-08"
+  >
+    <span class="project-selector" aria-hidden="true">&gt;</span>
+    <span class="project-number">[08]</span>
+
+    <span class="project-heading">
+      <span class="project-title">
+        Linux GPIO Character Device Driver
+      </span>
+
+      <span class="project-subtitle">
+        Operating Systems · Embedded Linux
+      </span>
+    </span>
+
+    <span class="project-action" aria-hidden="true">
+      EXPLORE →
+    </span>
+  </button>
+
+  <div
+    class="project-panel"
+    id="project-panel-08"
+    hidden
+  >
+
+    <div class="project-status" aria-hidden="true">
+      [ OPENING PROJECT 08... ]
+    </div>
+
+    <div class="project-content">
+
+      <ul class="skills">
+        <li>C</li>
+        <li>Linux Kernel</li>
+        <li>Raspberry Pi</li>
+        <li>GPIO</li>
+        <li>Device Drivers</li>
+        <li>LKM</li>
+      </ul>
+
+      <div class="project-section">
+        <h3>Overview</h3>
+
+        <p>
+          I developed a Linux character device driver in C for direct Raspberry
+          Pi GPIO control using the Linux Kernel Module framework, working
+          directly across the boundary between user-space applications,
+          kernel-space software, and physical hardware.
+        </p>
+      </div>
+
+      <div class="project-section">
+        <h3>Implementation</h3>
+
+        <p>
+          I implemented ioctl() interfaces for GPIO configuration and control,
+          created user-space applications for interacting with the driver, and
+          developed Makefiles for compiling, loading, and deploying the kernel
+          module on Embedded Linux.
+        </p>
+      </div>
+
+      <div class="project-section">
+        <h3>Systems Focus</h3>
+
+        <p>
+          I validated driver functionality using Linux kernel logs through
+          dmesg, system utilities, and command-line debugging tools. Building
+          the driver gave me a deeper understanding of operating-system
+          abstractions and the software interfaces connecting applications to
+          hardware.
+        </p>
+      </div>
+
+    </div>
+
+    <button
+      class="project-collapse"
+      type="button"
+      aria-label="Collapse Linux GPIO Character Device Driver"
+    >
+      [ COLLAPSE PROJECT ↑ ]
+    </button>
+
+  </div>
+
+</article>
+
+<hr class="project-divider" />
+
+
+  <!-- =========================================================
+     09 — STM32 ENVIRONMENTAL MONITORING SYSTEM
+     ========================================================= -->
+
+<article class="project-item" data-project="09">
+
+  <button
+    class="project-trigger"
+    type="button"
+    aria-expanded="false"
+    aria-controls="project-panel-09"
+  >
+    <span class="project-selector" aria-hidden="true">&gt;</span>
+    <span class="project-number">[09]</span>
+
+    <span class="project-heading">
+      <span class="project-title">
+        STM32 Environmental Monitoring System
+      </span>
+
+      <span class="project-subtitle">
+        Embedded Systems · Real-Time Firmware
+      </span>
+    </span>
+
+    <span class="project-action" aria-hidden="true">
+      EXPLORE →
+    </span>
+  </button>
+
+  <div
+    class="project-panel"
+    id="project-panel-09"
+    hidden
+  >
+
+    <div class="project-status" aria-hidden="true">
+      [ OPENING PROJECT 09... ]
+    </div>
+
+    <div class="project-content">
+
+      <ul class="skills">
+        <li>Embedded C</li>
+        <li>STM32</li>
+        <li>UART</li>
+        <li>ADC</li>
+        <li>I²C</li>
+        <li>GPIO</li>
+      </ul>
+
+      <div class="project-section">
+        <h3>Overview</h3>
+
+        <p>
+          I developed Embedded C firmware for an STM32-based environmental
+          monitoring system that acquires and processes sensor measurements in
+          real time.
+        </p>
+      </div>
+
+      <div class="project-section">
+        <h3>Implementation</h3>
+
+        <p>
+          I integrated temperature and humidity sensors through I²C and
+          implemented ADC-based analog signal acquisition. Hardware timers and
+          interrupts drive periodic sensor sampling and UART communication,
+          avoiding dependence on a purely sequential polling architecture.
+        </p>
+      </div>
+
+      <div class="project-section">
+        <h3>Systems Focus</h3>
+
+        <p>
+          I also implemented low-power firmware techniques and validated system
+          behavior using STM32CubeIDE debugging and serial communication tools.
+          The project strengthened my understanding of timing, interrupts,
+          resource constraints, and hardware-software coordination in real-time
+          systems.
+        </p>
+      </div>
+
+    </div>
+
+    <button
+      class="project-collapse"
+      type="button"
+      aria-label="Collapse STM32 Environmental Monitoring System"
+    >
+      [ COLLAPSE PROJECT ↑ ]
+    </button>
+
+  </div>
+
+</article>
+
+<hr class="project-divider" />
+
+
+  <!-- =========================================================
+     10 — ESP32 SMART HOME CONTROLLER
+     ========================================================= -->
+
+<article class="project-item" data-project="10">
+
+  <button
+    class="project-trigger"
+    type="button"
+    aria-expanded="false"
+    aria-controls="project-panel-10"
+  >
+    <span class="project-selector" aria-hidden="true">&gt;</span>
+    <span class="project-number">[10]</span>
+
+    <span class="project-heading">
+      <span class="project-title">
+        ESP32 Smart Home Controller
+      </span>
+
+      <span class="project-subtitle">
+        FreeRTOS · IoT · Concurrent Embedded Systems
+      </span>
+    </span>
+
+    <span class="project-action" aria-hidden="true">
+      EXPLORE →
+    </span>
+  </button>
+
+  <div
+    class="project-panel"
+    id="project-panel-10"
+    hidden
+  >
+
+    <div class="project-status" aria-hidden="true">
+      [ OPENING PROJECT 10... ]
+    </div>
+
+    <div class="project-content">
+
+      <ul class="skills">
+        <li>C</li>
+        <li>ESP32</li>
+        <li>FreeRTOS</li>
+        <li>MQTT</li>
+        <li>Wi-Fi</li>
+        <li>SPI</li>
+      </ul>
+
+      <div class="project-section">
+        <h3>Overview</h3>
+
+        <p>
+          I developed an ESP32-based smart-home controller using FreeRTOS to
+          coordinate multiple concurrent embedded tasks for sensing,
+          communication, and device control.
+        </p>
+      </div>
+
+      <div class="project-section">
+        <h3>Implementation</h3>
+
+        <p>
+          I implemented task scheduling, queues, and semaphores for
+          synchronization between concurrent operations and integrated Wi-Fi
+          connectivity with MQTT-based messaging for remote monitoring and
+          control.
+        </p>
+      </div>
+
+      <div class="project-section">
+        <h3>Systems Focus</h3>
+
+        <p>
+          I also interfaced peripherals using SPI and GPIO while managing timing
+          and shared resources across tasks. The project strengthened my
+          understanding of concurrency, synchronization, communication
+          protocols, and resource management in embedded real-time systems.
+        </p>
+      </div>
+
+    </div>
+
+    <button
+      class="project-collapse"
+      type="button"
+      aria-label="Collapse ESP32 Smart Home Controller"
+    >
+      [ COLLAPSE PROJECT ↑ ]
+    </button>
+
+  </div>
+
+</article>
+
+<hr class="project-divider" />
+
+
+<!-- =========================================================
+     11 — RTOS-BASED SMART TRAFFIC CONTROLLER
+     ========================================================= -->
+
+<article class="project-item" data-project="11">
+
+  <button
+    class="project-trigger"
+    type="button"
+    aria-expanded="false"
+    aria-controls="project-panel-11"
+  >
+    <span class="project-selector" aria-hidden="true">&gt;</span>
+    <span class="project-number">[11]</span>
+
+    <span class="project-heading">
+      <span class="project-title">
+        RTOS-Based Smart Traffic Controller
+      </span>
+
+      <span class="project-subtitle">
+        Real-Time Systems · Embedded Control
+      </span>
+    </span>
+
+    <span class="project-action" aria-hidden="true">
+      EXPLORE →
+    </span>
+  </button>
+
+  <div
+    class="project-panel"
+    id="project-panel-11"
+    hidden
+  >
+
+    <div class="project-status" aria-hidden="true">
+      [ OPENING PROJECT 11... ]
+    </div>
+
+    <div class="project-content">
+
+      <ul class="skills">
+        <li>C</li>
+        <li>STM32</li>
+        <li>FreeRTOS</li>
+        <li>GPIO</li>
+        <li>Timers</li>
+        <li>Interrupts</li>
+      </ul>
+
+      <div class="project-section">
+        <h3>Overview</h3>
+
+        <p>
+          I developed an RTOS-based traffic-control system on STM32 hardware,
+          using concurrent tasks to coordinate traffic signals and real-time
+          control behavior.
+        </p>
+      </div>
+
+      <div class="project-section">
+        <h3>Implementation</h3>
+
+        <p>
+          I implemented FreeRTOS task scheduling and synchronization mechanisms
+          alongside GPIO control, hardware timers, and interrupts to coordinate
+          deterministic signal transitions and time-sensitive system events.
+        </p>
+      </div>
+
+      <div class="project-section">
+        <h3>Systems Focus</h3>
+
+        <p>
+          The project gave me practical experience designing deterministic
+          embedded software where scheduling, timing guarantees, interrupt
+          handling, and coordination between concurrent tasks directly affect
+          system correctness.
+        </p>
+      </div>
+
+    </div>
+
+    <button
+      class="project-collapse"
+      type="button"
+      aria-label="Collapse RTOS-Based Smart Traffic Controller"
+    >
+      [ COLLAPSE PROJECT ↑ ]
+    </button>
+
+  </div>
+
+</article>
+
+<hr class="project-divider" />
 
   <p>
     My projects span language-model agents, multimodal AI, machine
@@ -599,14 +1309,15 @@
     uncertainty, and remain reliable when deployed in complex real-world
     environments.
   </p>
+
+  <p class="projects-selection-note">
+    These projects represent a selected portion of my work. I have developed
+    additional research, university, personal, and engineering projects beyond
+    those highlighted here.
+  </p>
 </section>
-        <p>
-          This represents just a small selection of the projects I have worked
-          on over the years. I have many more pieces of personal, university and
-          design work.
-        </p>
-      </section>
-      <section style="margin-top: 100px;">
+
+<section style="margin-top: 100px;">
   <h1 id="experience">Experience</h1>
   <hr />
 
