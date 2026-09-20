@@ -42,6 +42,22 @@ const h3Font: FontInfo = (function () {
   const tracking = width * 0.22;
   return { font: undefined, size, height, width, leading, tracking };
 })();
+const projectTitleFont: FontInfo = (function () {
+  const size = 0.0275;
+  const height = size;
+  const width = size * 0.8;
+  const leading = height * 2;
+  const tracking = width * 0.18;
+
+  return {
+    font: undefined,
+    size,
+    height,
+    width,
+    leading,
+    tracking,
+  };
+})();
 
 declare const screenWidth: number;
 
@@ -68,9 +84,10 @@ export default function ScreenTextEngine(
   sceneRTT: THREE.Scene
 ) {
   h1Font.font = assists.publicPixelFont;
-  h2Font.font = assists.chillFont;
-  h3Font.font = assists.chillFont;
-  paragraphFont.font = assists.chillFont;
+h2Font.font = assists.chillFont;
+h3Font.font = assists.chillFont;
+projectTitleFont.font = assists.chillFont;
+paragraphFont.font = assists.chillFont;
 
   const rootGroup = new THREE.Group();
   sceneRTT.add(rootGroup);
@@ -264,11 +281,13 @@ export default function ScreenTextEngine(
   }
 
   type MDtoken = {
-    type: "h1" | "h2" | "h3" | "p" | "br" | "img";
-    emphasis: boolean;
-    value: string;
-  };
+  type: "h1" | "h2" | "h3" | "projectTitle" | "p" | "br" | "img";
+  emphasis: boolean;
+  value: string;
+};
   function placeMarkdown(md: string) {
+    charNextLoc.x = 0;
+
     const yBefore = charNextLoc.y;
 
     const tokens: MDtoken[] = [];
@@ -277,6 +296,21 @@ export default function ScreenTextEngine(
     for (let i = 0; i < md.length; i++) {
       // fix error with CRLF
       if (md[i] === "\r") continue;
+// Dedicated project title
+if (
+  currentToken === undefined &&
+  md.startsWith("@@ ", i)
+) {
+  i += 2;
+
+  currentToken = {
+    type: "projectTitle",
+    emphasis: false,
+    value: "",
+  };
+
+  continue;
+}
 
       // h1, h2, h3
       if (currentToken === undefined && md[i] === "#") {
@@ -354,6 +388,23 @@ export default function ScreenTextEngine(
       const t = tokens[i];
       const geometry = [];
       switch (t.type) {
+        case "projectTitle": {
+  const words = t.value.trim().split(/\s+/);
+
+  for (const word of words) {
+    geometry.push(
+      generateGeometry({
+        str: word + " ",
+        font: projectTitleFont,
+        highlight: false,
+        wrap: true,
+        isWord: true,
+      })
+    );
+  }
+
+  break;
+}
         case "h1": {
   const words = t.value.trim().split(/\s+/);
 
@@ -372,19 +423,28 @@ export default function ScreenTextEngine(
 }
 
 case "h2": {
-  const words = t.value.trim().split(/\s+/);
+  const value = t.value.trim();
+
+  const isProjectTitle = /^\[\d{2}\]\s/.test(value);
+
+  const font = isProjectTitle
+    ? projectTitleFont
+    : h2Font;
+
+  const words = value.split(/\s+/);
 
   for (const word of words) {
     geometry.push(
       generateGeometry({
         str: word + " ",
-        font: h2Font,
+        font,
         highlight: t.emphasis,
         wrap: true,
         isWord: true,
       })
     );
   }
+
   break;
 }
 
@@ -426,12 +486,17 @@ case "h3": {
           if (i > 0) {
             const type = tokens[i - 1].type;
             switch (type) {
+              case "projectTitle":
+  font = projectTitleFont;
+  break;
               case "h1":
                 font = h1Font;
                 break;
               case "h2":
-                font = h2Font;
-                break;
+  font = /^\[\d{2}\]\s/.test(tokens[i - 1].value.trim())
+    ? projectTitleFont
+    : h2Font;
+  break;
               case "h3":
                 font = h3Font;
                 break;

@@ -4,8 +4,14 @@
 ### • C, STM32, FreeRTOS
 ### • GPIO, Timers, Interrupts
 
-I developed a multitasking traffic-signal controller using STM32 and FreeRTOS to simulate real-time traffic management.
+### Overview
 
-I implemented concurrent RTOS tasks for traffic lights, pedestrian crossings, and emergency-vehicle priority handling. GPIO, hardware timers, and external interrupts provide deterministic signal control.
+I developed an RTOS-based traffic-control system on STM32 hardware, using concurrent tasks to coordinate traffic signals and real-time control behavior.
 
-I used FreeRTOS queues, semaphores, and software timers for task synchronization and inter-task communication while optimizing scheduling latency and resource utilization for reliable real-time operation.
+### Implementation
+
+I implemented FreeRTOS task scheduling and synchronization mechanisms alongside GPIO control, hardware timers, and interrupts to coordinate deterministic signal transitions and time-sensitive system events.
+
+### Systems Focus
+
+The project gave me practical experience designing deterministic embedded software where scheduling, timing guarantees, interrupt handling, and coordination between concurrent tasks directly affect system correctness.

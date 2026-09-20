@@ -4,8 +4,14 @@
 ### • C, Linux Kernel, Raspberry Pi
 ### • GPIO, Device Drivers, LKM
 
-I developed a Linux character device driver in C for direct Raspberry Pi GPIO control using the Linux Kernel Module framework.
+### Overview
 
-I implemented kernel-space and user-space communication through ioctl() interfaces for GPIO configuration and control, developed user-space applications for interacting with the driver, and created Makefiles for module compilation and deployment.
+I developed a Linux character device driver in C for direct Raspberry Pi GPIO control using the Linux Kernel Module framework, working directly across the boundary between user-space applications, kernel-space software, and physical hardware.
 
-I validated driver functionality using dmesg, Linux system utilities, and command-line debugging tools. The project gave me deeper experience with operating-system abstractions and hardware-software interfaces.
+### Implementation
+
+I implemented ioctl() interfaces for GPIO configuration and control, created user-space applications for interacting with the driver, and developed Makefiles for compiling, loading, and deploying the kernel module on Embedded Linux.
+
+### Systems Focus
+
+I validated driver functionality using Linux kernel logs through dmesg, system utilities, and command-line debugging tools. Building the driver gave me a deeper understanding of operating-system abstractions and the software interfaces connecting applications to hardware.

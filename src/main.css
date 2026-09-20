@@ -1032,3 +1032,628 @@ html[data-scroll="true"] .retro-cursor-glow {
 .project-trigger {
   cursor: pointer;
 }
+
+/* ============================================================
+   EXPERIENCE EXPLORER
+   ============================================================ */
+
+.experience-explorer {
+  width: clamp(0px, 95vw, 900px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Header ---------- */
+
+.experience-header {
+  width: 100%;
+  margin: 0 auto 34px;
+  text-align: left;
+}
+
+.experience-heading-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.experience-heading-line h1 {
+  margin: 0;
+  text-align: left;
+}
+
+.experience-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 44px;
+  height: 44px;
+  padding: 0 8px;
+  box-sizing: border-box;
+
+  border: 2px dashed var(--color);
+
+  font-family: "public-pixel", monospace;
+  font-size: 0.75rem;
+}
+
+.experience-intro {
+  width: 100%;
+  max-width: 680px;
+
+  margin: 18px 0 14px;
+  padding: 0;
+
+  text-align: left;
+}
+
+.experience-prompt {
+  margin-top: 20px;
+
+  font-family: "public-pixel", monospace;
+  font-size: 0.68rem;
+  line-height: 1.6;
+
+  text-align: left;
+}
+
+
+/* ---------- Dividers ---------- */
+
+.experience-explorer > hr,
+.experience-divider {
+  width: 100%;
+  height: 0;
+
+  margin: 0;
+
+  background: transparent;
+
+  border: 0;
+  border-bottom: 1px dashed var(--color);
+
+  opacity: 0.55;
+}
+
+.experience-header + hr {
+  margin-bottom: 8px;
+}
+
+
+/* ============================================================
+   EXPERIENCE ROW
+   ============================================================ */
+
+.experience-item {
+  position: relative;
+
+  width: 100%;
+
+  text-align: left;
+}
+
+.experience-trigger {
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+
+  grid-template-columns:
+    28px
+    60px
+    minmax(0, 1fr)
+    auto;
+
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  min-height: 108px;
+
+  padding: 18px 16px;
+  box-sizing: border-box;
+
+  border: 0;
+  border-radius: 0;
+
+  background: transparent;
+  color: var(--color);
+
+  font-family: "chill", sans-serif;
+  text-align: left;
+
+  cursor: pointer;
+  overflow: hidden;
+
+  transition:
+    color 180ms ease,
+    padding-left 220ms ease;
+}
+
+
+/* Dark sweep */
+
+.experience-trigger::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: var(--color);
+
+  transform: translateX(-101%);
+
+  transition:
+    transform 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.experience-trigger:hover::before,
+.experience-trigger:focus-visible::before,
+.experience-item.is-open .experience-trigger::before {
+  transform: translateX(0);
+}
+
+.experience-trigger:hover,
+.experience-trigger:focus-visible,
+.experience-item.is-open .experience-trigger {
+  color: #f6d4b1;
+  padding-left: 20px;
+}
+
+.experience-trigger:focus {
+  outline: none;
+}
+
+.experience-trigger:focus-visible {
+  outline: 2px dashed #f6d4b1;
+  outline-offset: -6px;
+}
+
+
+/* ---------- > ---------- */
+
+.experience-selector {
+  opacity: 0;
+
+  transform: translateX(-8px);
+
+  font-family: "public-pixel", monospace;
+  font-size: 0.85rem;
+
+  transition:
+    opacity 160ms ease,
+    transform 180ms ease;
+}
+
+.experience-trigger:hover .experience-selector,
+.experience-trigger:focus-visible .experience-selector,
+.experience-item.is-open .experience-selector {
+  opacity: 1;
+
+  transform: translateX(0);
+}
+
+
+/* ---------- Number ---------- */
+
+.experience-number {
+  align-self: start;
+
+  padding-top: 5px;
+
+  font-family: "public-pixel", monospace;
+  font-size: 0.63rem;
+
+  opacity: 0.65;
+}
+
+.experience-trigger:hover .experience-number,
+.experience-trigger:focus-visible .experience-number,
+.experience-item.is-open .experience-number {
+  opacity: 1;
+}
+
+
+/* ---------- Title ---------- */
+
+.experience-heading {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+
+  min-width: 0;
+}
+
+.experience-title {
+  display: block;
+
+  font-family: "public-pixel", monospace;
+
+  font-size:
+    clamp(0.82rem, 1.5vw, 1.05rem);
+
+  line-height: 1.55;
+
+  transition:
+    transform 200ms ease,
+    letter-spacing 200ms ease;
+}
+
+.experience-trigger:hover .experience-title,
+.experience-trigger:focus-visible .experience-title,
+.experience-item.is-open .experience-title {
+  transform: translateX(4px);
+
+  letter-spacing: 0.015em;
+}
+
+
+/* ---------- Subtitle ---------- */
+
+.experience-subtitle {
+  display: block;
+
+  font-size: 0.72rem;
+  line-height: 1.5;
+
+  opacity: 0.68;
+
+  transition: opacity 180ms ease;
+}
+
+.experience-trigger:hover .experience-subtitle,
+.experience-trigger:focus-visible .experience-subtitle,
+.experience-item.is-open .experience-subtitle {
+  opacity: 0.9;
+}
+
+
+/* ---------- EXPLORE → ---------- */
+
+.experience-action {
+  padding-left: 16px;
+
+  white-space: nowrap;
+
+  font-family: "public-pixel", monospace;
+  font-size: 0.55rem;
+
+  opacity: 0.65;
+
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.experience-trigger:hover .experience-action,
+.experience-trigger:focus-visible .experience-action {
+  opacity: 1;
+
+  transform: translateX(4px);
+}
+
+.experience-item.is-open .experience-action {
+  font-size: 0;
+
+  opacity: 1;
+}
+
+.experience-item.is-open .experience-action::after {
+  content: "OPEN ↑";
+
+  font-family: "public-pixel", monospace;
+  font-size: 0.55rem;
+}
+
+
+/* ============================================================
+   EXPANDED EXPERIENCE
+   ============================================================ */
+
+.experience-panel {
+  width: 100%;
+
+  padding:
+    14px
+    18px
+    38px
+    98px;
+
+  box-sizing: border-box;
+
+  text-align: left;
+}
+
+.experience-panel[hidden] {
+  display: none;
+}
+
+.experience-status {
+  margin: 10px 0 26px;
+
+  font-family: "public-pixel", monospace;
+
+  font-size: 0.58rem;
+  line-height: 1.6;
+
+  opacity: 0.55;
+}
+
+.experience-content {
+  width: 100%;
+  max-width: 760px;
+}
+
+
+/* ---------- Skills ---------- */
+
+.experience-content .skills {
+  justify-content: flex-start;
+
+  width: 100%;
+  max-width: 760px;
+
+  margin: 0 0 34px;
+  padding: 0;
+
+  gap: 12px;
+
+  text-align: left;
+}
+
+.experience-content .skills li {
+  font-size: 0.72rem;
+}
+
+
+/* ---------- Information sections ---------- */
+
+.experience-section {
+  margin: 0 0 32px;
+}
+
+.experience-section h3 {
+  display: block;
+
+  margin: 0 0 10px;
+  padding: 0;
+
+  color: var(--color);
+  background: transparent;
+
+  font-family: "public-pixel", monospace;
+  font-size: 0.68rem;
+  line-height: 1.6;
+
+  text-align: left;
+}
+
+.experience-section h3::before {
+  content: "> ";
+}
+
+.experience-section p {
+  width: 100%;
+  max-width: 760px;
+
+  margin: 0;
+  padding: 0;
+
+  text-align: left;
+}
+
+
+/* ---------- Collapse ---------- */
+
+.experience-collapse {
+  margin: 4px 0 0;
+
+  padding: 9px 12px;
+
+  border: 1px dashed var(--color);
+  border-radius: 0;
+
+  background: transparent;
+  color: var(--color);
+
+  font-family: "public-pixel", monospace;
+  font-size: 0.55rem;
+
+  cursor: pointer;
+
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.experience-collapse:hover,
+.experience-collapse:focus-visible {
+  background: var(--color);
+  color: #f6d4b1;
+
+  transform: translateY(-2px);
+}
+
+.experience-collapse:focus-visible {
+  outline: 2px dashed var(--color);
+  outline-offset: 4px;
+}
+
+
+/* ---------- Summary ---------- */
+
+.experience-summary {
+  margin-top: 40px;
+
+  text-align: left;
+}
+
+
+/* ============================================================
+   EXPERIENCE — MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+  .experience-heading-line {
+    gap: 12px;
+  }
+
+  .experience-heading-line h1 {
+    font-size: 1.35em;
+  }
+
+  .experience-count {
+    min-width: 38px;
+    height: 38px;
+
+    font-size: 0.62rem;
+  }
+
+  .experience-intro {
+    margin-top: 16px;
+  }
+
+  .experience-prompt {
+    font-size: 0.58rem;
+  }
+
+  .experience-trigger {
+    grid-template-columns:
+      20px
+      46px
+      minmax(0, 1fr);
+
+    gap: 6px;
+
+    min-height: 100px;
+
+    padding: 16px 6px;
+  }
+
+  .experience-trigger:hover,
+  .experience-trigger:focus-visible,
+  .experience-item.is-open .experience-trigger {
+    padding-left: 10px;
+  }
+
+  .experience-action {
+    display: none;
+  }
+
+  .experience-number {
+    font-size: 0.55rem;
+  }
+
+  .experience-title {
+    font-size: 0.78rem;
+  }
+
+  .experience-subtitle {
+    font-size: 0.65rem;
+  }
+
+  .experience-panel {
+    padding:
+      14px
+      8px
+      34px
+      72px;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .experience-heading-line h1 {
+    font-size: 1.05em;
+  }
+
+  .experience-count {
+    min-width: 34px;
+    height: 34px;
+  }
+
+  .experience-trigger {
+    grid-template-columns:
+      16px
+      40px
+      minmax(0, 1fr);
+
+    min-height: 92px;
+
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .experience-title {
+    font-size: 0.7rem;
+  }
+
+  .experience-subtitle {
+    font-size: 0.58rem;
+  }
+
+  .experience-panel {
+    padding-left: 58px;
+  }
+}
+
+
+/* ============================================================
+   TOUCH
+   ============================================================ */
+
+@media (hover: none) {
+
+  .experience-trigger:hover::before {
+    transform: translateX(-101%);
+  }
+
+  .experience-trigger:hover {
+    color: var(--color);
+  }
+
+  .experience-trigger:hover .experience-selector {
+    opacity: 0;
+
+    transform: translateX(-8px);
+  }
+
+  .experience-item.is-open .experience-trigger::before {
+    transform: translateX(0);
+  }
+
+  .experience-item.is-open .experience-trigger {
+    color: #f6d4b1;
+  }
+
+  .experience-item.is-open .experience-selector {
+    opacity: 1;
+
+    transform: translateX(0);
+  }
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .experience-trigger,
+  .experience-trigger::before,
+  .experience-selector,
+  .experience-title,
+  .experience-subtitle,
+  .experience-action,
+  .experience-collapse {
+    transition: none;
+  }
+}

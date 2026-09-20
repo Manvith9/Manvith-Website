@@ -2,10 +2,16 @@
 ### Document AI · Multimodal Learning
 
 ### • PyTorch, LayoutLM, OCR
-### • Transformers, FastAPI, AWS
+### • FastAPI, Transformers, AWS
+
+### Overview
 
 I developed an AI-powered document intelligence platform for automated document understanding, classification, and structured information extraction across more than 100,000 records.
 
-I built OCR and transformer-based processing pipelines using LayoutLM and PyTorch, allowing the system to model both textual information and spatial document structure. The resulting pipeline achieved approximately 91% extraction accuracy on structured document fields.
+### Implementation
 
-I also implemented automated evaluation and processing workflows that reduced manual document-review effort by approximately 65%. This project strengthened my interest in multimodal representation learning and systems that reason across multiple forms of context.
+I built OCR and transformer-based processing pipelines using LayoutLM and PyTorch, allowing the system to model both textual content and spatial document structure. The resulting pipeline achieved approximately 91% extraction accuracy on structured document fields.
+
+### Research Direction
+
+I also implemented automated evaluation and processing workflows that reduced manual document-review effort by approximately 65%. The project strengthened my interest in multimodal representations and in systems that must reason over several forms of context simultaneously.

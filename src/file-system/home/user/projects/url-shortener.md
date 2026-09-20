@@ -4,8 +4,14 @@
 ### • Java, Spring Boot, PostgreSQL
 ### • Redis, AWS, Docker
 
-I developed a distributed URL-shortening service with REST APIs supporting URL generation, redirection, and analytics tracking.
+### Overview
 
-I implemented Redis caching and rate limiting to reduce repeated database access and protect backend resources, reducing average response latency by approximately 60% in my testing.
+I developed a distributed URL-shortening service with REST APIs for URL generation, redirection, and analytics tracking. The system was designed around scalable backend architecture rather than treating URL shortening as a simple database lookup.
 
-I containerized the service with Docker and deployed it on AWS using a scalable architecture. The project allowed me to explore caching, persistence, rate limiting, API design, performance optimization, and distributed backend architecture.
+### Implementation
+
+I implemented Redis caching and rate limiting to reduce repeated database access and protect backend resources, reducing average response latency by approximately 60% in my testing. Persistent URL data and analytics are managed through PostgreSQL.
+
+### Engineering Focus
+
+I containerized the services with Docker and deployed them on AWS using a scalable microservices-oriented architecture. The project allowed me to explore how caching, persistence, API design, rate limiting, and deployment decisions influence system behavior under increasing demand.

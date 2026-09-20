@@ -429,3 +429,333 @@ projectTriggers.forEach((trigger) => {
     cursorGlow.classList.remove("is-project-hover");
   });
 });
+
+/* ============================================================
+   EXPERIENCE EXPLORER
+   ============================================================ */
+
+const experienceItems = Array.from(
+  document.querySelectorAll<HTMLElement>(".experience-item")
+);
+
+const experienceTriggers = Array.from(
+  document.querySelectorAll<HTMLButtonElement>(".experience-trigger")
+);
+
+let activeExperienceIndex = -1;
+
+
+/* ------------------------------------------------------------
+   HELPERS
+   ------------------------------------------------------------ */
+
+function getExperiencePanel(
+  item: HTMLElement
+): HTMLElement | null {
+  return item.querySelector<HTMLElement>(".experience-panel");
+}
+
+function getExperienceTrigger(
+  item: HTMLElement
+): HTMLButtonElement | null {
+  return item.querySelector<HTMLButtonElement>(".experience-trigger");
+}
+
+function getExperienceStatus(
+  item: HTMLElement
+): HTMLElement | null {
+  return item.querySelector<HTMLElement>(".experience-status");
+}
+
+function getExperienceNumber(item: HTMLElement): string {
+  return item.dataset.experience ?? "--";
+}
+
+
+/* ------------------------------------------------------------
+   CLOSE EXPERIENCE
+   ------------------------------------------------------------ */
+
+function closeExperience(
+  item: HTMLElement,
+  returnFocus = false
+) {
+  const panel = getExperiencePanel(item);
+  const trigger = getExperienceTrigger(item);
+  const status = getExperienceStatus(item);
+  const number = getExperienceNumber(item);
+
+  if (!panel || !trigger) return;
+
+  item.classList.remove("is-open");
+  trigger.setAttribute("aria-expanded", "false");
+
+  if (status) {
+    status.textContent = `[ CLOSING EXPERIENCE ${number}... ]`;
+  }
+
+  const delay = prefersReducedMotion.matches ? 0 : 120;
+
+  window.setTimeout(() => {
+    panel.hidden = true;
+
+    if (status) {
+      status.textContent = `[ OPENING EXPERIENCE ${number}... ]`;
+    }
+  }, delay);
+
+  if (returnFocus) {
+    trigger.focus({
+      preventScroll: true
+    });
+  }
+}
+
+
+/* ------------------------------------------------------------
+   CLOSE OTHER EXPERIENCES
+   ------------------------------------------------------------ */
+
+function closeOtherExperiences(currentItem: HTMLElement) {
+  experienceItems.forEach((item) => {
+    if (item === currentItem) return;
+
+    const panel = getExperiencePanel(item);
+
+    if (panel && !panel.hidden) {
+      closeExperience(item);
+    }
+  });
+}
+
+
+/* ------------------------------------------------------------
+   OPEN EXPERIENCE
+   ------------------------------------------------------------ */
+
+function openExperience(
+  item: HTMLElement,
+  shouldScroll = true
+) {
+  const panel = getExperiencePanel(item);
+  const trigger = getExperienceTrigger(item);
+  const status = getExperienceStatus(item);
+  const number = getExperienceNumber(item);
+
+  if (!panel || !trigger) return;
+
+  closeOtherExperiences(item);
+
+  panel.hidden = false;
+
+  item.classList.add("is-open");
+  trigger.setAttribute("aria-expanded", "true");
+
+  if (status) {
+    status.textContent = `[ OPENING EXPERIENCE ${number}... ]`;
+  }
+
+  const index = experienceItems.indexOf(item);
+
+  if (index !== -1) {
+    activeExperienceIndex = index;
+  }
+
+  const delay = prefersReducedMotion.matches ? 0 : 150;
+
+  window.setTimeout(() => {
+    if (!item.classList.contains("is-open")) return;
+
+    if (status) {
+      status.textContent = `[ EXPERIENCE ${number} LOADED ]`;
+    }
+  }, delay);
+
+  if (shouldScroll) {
+    window.setTimeout(() => {
+      trigger.scrollIntoView({
+        behavior: prefersReducedMotion.matches
+          ? "auto"
+          : "smooth",
+        block: "nearest"
+      });
+    }, delay);
+  }
+}
+
+
+/* ------------------------------------------------------------
+   TOGGLE EXPERIENCE
+   ------------------------------------------------------------ */
+
+function toggleExperience(item: HTMLElement) {
+  const panel = getExperiencePanel(item);
+
+  if (!panel) return;
+
+  if (panel.hidden) {
+    openExperience(item);
+  } else {
+    closeExperience(item, true);
+  }
+}
+
+
+/* ------------------------------------------------------------
+   CLICK / FOCUS BEHAVIOR
+   ------------------------------------------------------------ */
+
+experienceItems.forEach((item, index) => {
+  const trigger = getExperienceTrigger(item);
+
+  const collapseButton =
+    item.querySelector<HTMLButtonElement>(
+      ".experience-collapse"
+    );
+
+  if (!trigger) return;
+
+  trigger.addEventListener("click", () => {
+    activeExperienceIndex = index;
+    toggleExperience(item);
+  });
+
+  collapseButton?.addEventListener("click", () => {
+    closeExperience(item, true);
+  });
+
+  trigger.addEventListener("focus", () => {
+    activeExperienceIndex = index;
+  });
+});
+
+
+/* ------------------------------------------------------------
+   KEYBOARD NAVIGATION
+   ------------------------------------------------------------ */
+
+function focusExperience(index: number) {
+  if (experienceTriggers.length === 0) return;
+
+  const normalizedIndex =
+    (index + experienceTriggers.length) %
+    experienceTriggers.length;
+
+  activeExperienceIndex = normalizedIndex;
+
+  const trigger = experienceTriggers[normalizedIndex];
+
+  trigger.focus({
+    preventScroll: true
+  });
+
+  trigger.scrollIntoView({
+    behavior: prefersReducedMotion.matches
+      ? "auto"
+      : "smooth",
+    block: "nearest"
+  });
+}
+
+
+document.addEventListener("keydown", (event) => {
+  const target = event.target as HTMLElement | null;
+
+  if (
+    target?.matches(
+      "input, textarea, select, [contenteditable='true']"
+    )
+  ) {
+    return;
+  }
+
+  const insideExperience =
+    target?.closest(".experience-item");
+
+  if (!insideExperience) return;
+
+  switch (event.key) {
+
+    case "ArrowDown":
+      event.preventDefault();
+
+      focusExperience(
+        activeExperienceIndex < 0
+          ? 0
+          : activeExperienceIndex + 1
+      );
+
+      break;
+
+
+    case "ArrowUp":
+      event.preventDefault();
+
+      focusExperience(
+        activeExperienceIndex < 0
+          ? experienceTriggers.length - 1
+          : activeExperienceIndex - 1
+      );
+
+      break;
+
+
+    case "Home":
+      event.preventDefault();
+      focusExperience(0);
+      break;
+
+
+    case "End":
+      event.preventDefault();
+      focusExperience(
+        experienceTriggers.length - 1
+      );
+      break;
+
+
+    case "Escape": {
+      const openItem =
+        document.querySelector<HTMLElement>(
+          ".experience-item.is-open"
+        );
+
+      if (openItem) {
+        event.preventDefault();
+        closeExperience(openItem, true);
+      }
+
+      break;
+    }
+  }
+});
+
+
+/* ============================================================
+   EXPERIENCE CURSOR INTERACTION
+   ============================================================ */
+
+experienceTriggers.forEach((trigger) => {
+
+  trigger.addEventListener(
+    "pointerenter",
+    (event) => {
+      if (event.pointerType !== "mouse") return;
+
+      cursor.classList.add("is-project-hover");
+      cursorGlow.classList.add("is-project-hover");
+    }
+  );
+
+
+  trigger.addEventListener(
+    "pointerleave",
+    (event) => {
+      if (event.pointerType !== "mouse") return;
+
+      cursor.classList.remove("is-project-hover");
+      cursorGlow.classList.remove("is-project-hover");
+    }
+  );
+
+});

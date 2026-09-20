@@ -4,8 +4,14 @@
 ### • Machine Learning, Next.js, Flask
 ### • Firebase, PostgreSQL, AWS
 
-I developed an end-to-end healthcare analytics platform for securely managing health information, identifying trends, and generating predictive insights across more than 1,000 user health records.
+### Overview
 
-I built machine-learning analytics pipelines that achieved approximately 87% prediction accuracy in my evaluation and integrated them with a full-stack application using Next.js, Flask, Firebase, and REST APIs.
+I developed an end-to-end healthcare analytics platform for securely managing health information, identifying trends, and generating predictive insights from more than 1,000 user health records.
 
-The system includes authentication, interactive dashboards, data visualization, and external integrations for health-related information. This project taught me to approach machine learning as a complete system involving models, data pipelines, APIs, security, and usable interfaces.
+### Implementation
+
+I built machine-learning analytics pipelines that achieved approximately 87% prediction accuracy in my evaluation and connected them to a full-stack application using Next.js, Flask, Firebase, and REST APIs. Interactive dashboards expose health trends and model outputs while authentication and persistent storage support secure profile management.
+
+### Engineering Direction
+
+I also integrated visualization and external services for diet and exercise information. Building the system reinforced my view that successful machine learning depends not only on model performance but also on reliable data pipelines, software architecture, security, and understandable interfaces.

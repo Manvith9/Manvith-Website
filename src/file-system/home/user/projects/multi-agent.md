@@ -4,8 +4,14 @@
 ### • LangGraph, LangChain, OpenAI API
 ### • FastAPI, Pinecone, PostgreSQL, AWS
 
-I developed a full-stack multi-agent AI research platform that automates complex research workflows through specialized agents responsible for planning, retrieval, analysis, and synthesis.
+### Overview
 
-I implemented tool calling, contextual memory, semantic search, and multi-agent orchestration across 5+ specialized AI agents. The system integrates vector retrieval and multi-step reasoning pipelines to support analysis across more than 25,000 indexed documents.
+I developed a full-stack multi-agent AI research platform that decomposes complex research workflows across specialized agents for planning, information retrieval, analysis, and synthesis. Rather than relying on a single language-model interaction, the system coordinates five or more specialized agents to execute multi-step research tasks.
 
-I built this project to explore how language-model agents can decompose complex problems, retrieve external evidence, maintain context, and coordinate decisions across longer research workflows.
+### Implementation
+
+I implemented agent orchestration, tool calling, contextual memory, semantic search, and retrieval-augmented generation using LangGraph and LangChain. FastAPI services connect the agent layer with application workflows, while vector search and PostgreSQL-backed pipelines support analysis across more than 25,000 indexed documents.
+
+### Research Direction
+
+I designed the project to explore how language-model agents can decompose difficult problems, retrieve external evidence, maintain useful context, and coordinate decisions across longer workflows. This work directly shaped my broader research interests in agentic AI, foundation models, interactive learning, reinforcement learning, and feedback-driven adaptation.

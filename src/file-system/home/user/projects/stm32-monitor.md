@@ -2,10 +2,16 @@
 ### Embedded Systems · Real-Time Firmware
 
 ### • Embedded C, STM32, UART
-### • ADC, I2C, GPIO, Interrupts
+### • ADC, I²C, GPIO
 
-I developed Embedded C firmware for an STM32-based environmental monitoring system that acquires sensor measurements in real time.
+### Overview
 
-I integrated temperature and humidity sensors through I2C and implemented ADC-based analog signal acquisition. I designed interrupt-driven firmware using hardware timers for periodic sensor sampling and UART communication.
+I developed Embedded C firmware for an STM32-based environmental monitoring system that acquires and processes sensor measurements in real time.
 
-I also implemented low-power firmware techniques and validated the system using STM32CubeIDE and serial communication tools, strengthening my understanding of real-time execution and hardware-software coordination.
+### Implementation
+
+I integrated temperature and humidity sensors through I²C and implemented ADC-based analog signal acquisition. Hardware timers and interrupts drive periodic sensor sampling and UART communication, avoiding dependence on a purely sequential polling architecture.
+
+### Systems Focus
+
+I also implemented low-power firmware techniques and validated system behavior using STM32CubeIDE debugging and serial communication tools. The project strengthened my understanding of timing, interrupts, resource constraints, and hardware-software coordination in real-time systems.

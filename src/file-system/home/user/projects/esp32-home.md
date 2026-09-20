@@ -2,10 +2,16 @@
 ### FreeRTOS · IoT · Concurrent Embedded Systems
 
 ### • C, ESP32, FreeRTOS
-### • MQTT, Wi-Fi, GPIO, SPI
+### • MQTT, Wi-Fi, SPI
 
-I developed multitasking firmware using FreeRTOS for an ESP32-based smart-home automation system.
+### Overview
 
-I implemented MQTT communication over Wi-Fi for real-time cloud connectivity and remote device monitoring and integrated environmental sensors and actuators through GPIO and SPI interfaces.
+I developed an ESP32-based smart-home controller using FreeRTOS to coordinate multiple concurrent embedded tasks for sensing, communication, and device control.
 
-I designed inter-task communication using FreeRTOS queues, semaphores, and software timers and optimized memory utilization and task scheduling to improve system responsiveness.
+### Implementation
+
+I implemented task scheduling, queues, and semaphores for synchronization between concurrent operations and integrated Wi-Fi connectivity with MQTT-based messaging for remote monitoring and control.
+
+### Systems Focus
+
+I also interfaced peripherals using SPI and GPIO while managing timing and shared resources across tasks. The project strengthened my understanding of concurrency, synchronization, communication protocols, and resource management in embedded real-time systems.
